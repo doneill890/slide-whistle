@@ -10,7 +10,7 @@ permalink: /doc/
 ## Overall Block Diagram
 
 <div style="text-align: left">
-  <img src="./assets/schematics/block_diagram.png" alt="logo" width="600" />
+  <img src="../assets/schematics/block_diagram.png" alt="logo" width="600" />
 </div>
 
 # Source Code Overview
