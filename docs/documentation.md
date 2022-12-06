@@ -13,8 +13,22 @@ permalink: /doc/
   <img src="../assets/schematics/block_diagram.png" alt="logo" width="600" />
 </div>
 
+## FPGA/LCD Schematic
+
+<div style="text-align: left">
+  <img src="../assets/schematics/control_fsm_block_diagram.png" alt="logo" width="600" />
+</div>
+
+## MCU/Stepper Motor Schematic
+
+<div style="text-align: left">
+  <img src="../assets/schematics/stepper_schematic.png" alt="logo" width="600" />
+</div>
+
+
 # Source Code Overview
 <!-- This section should include information to describe the organization of the code base and highlight how the code connects. -->
+
 
 The source code for the project is located in the Github repository [here](https://github.com/doneill890/slide-whistle/tree/main/src).
 
