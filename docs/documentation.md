@@ -46,5 +46,6 @@ The source code for the project is located in the Github repository [here](https
 | Lukmaa Slide Whistle |  B091JVNBP9 | 1 | $9.99 |  [link](https://www.amazon.com/Lukmaa-Whistle-Instrument-Parent-Child-Stuffers/dp/B091JVNBP9/ref=sr_1_11?crid=2WIX541U4JRYK&keywords=slide+whistle&qid=1666912591&qu=eyJxc2MiOiI0LjgxIiwicXNhIjoiNC4xNyIsInFzcCI6IjQuMDIifQ%3D%3D&sprefix=slide+whistle%2Caps%2C164&sr=8-11) |
 | Focus LCDs Character Display |  C162D-BW-LW65 | 1 | $13.70 |  [link](https://www.digikey.com/en/products/detail/focus-lcds/C162D-BW-LW65/13683627) |
 | GDSTIME Fan |  C162D-BW-LW65 | 1 | $17.99 |  [link](https://www.amazon.com/gp/product/B089Y3QPYF/ref=ox_sc_act_title_2?smid=A235LT0EDLFSAR&psc=1) |
+| PLA for 3D printing (provided by school for free) | OVPLA175 | 1 | $19.99 | [link](https://www.amazon.com/OVERTURE-Filament-Consumables-Dimensional-Accuracy/dp/B07PGZNM34/ref=sr_1_4?keywords=pla+for+3d+printer&qid=1670449975&sr=8-4)
 
 **Total cost: $41.68**
