@@ -13,16 +13,22 @@ permalink: /doc/
   <img src="../assets/schematics/block_diagram.png" alt="logo" width="600" />
 </div>
 
-## FPGA/LCD Schematic
+## LCD Subsystem Schematic
 
 <div style="text-align: left">
   <img src="../assets/schematics/control_fsm_block_diagram.png" alt="logo" width="600" />
 </div>
 
-## MCU/Stepper Motor Schematic
+## Stepper Motor Subsystem Schematic
 
 <div style="text-align: left">
   <img src="../assets/schematics/stepper_schematic.png" alt="logo" width="600" />
+</div>
+
+## Fan Subsystem Schematic
+
+<div style="text-align: left">
+  <img src="../assets/schematics/fan_schematic.png" alt="logo" width="600" />
 </div>
 
 
