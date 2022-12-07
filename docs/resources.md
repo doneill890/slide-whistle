@@ -6,7 +6,9 @@ permalink: /resources/
 
 # References
 
-[1] “HD44780U (LCD-II) Datasheet.” Hitachi Corp. [https://circuitdigest.com/sites/default/files/HD44780U.pdf](https://circuitdigest.com/sites/default/files/HD44780U.pdf)
+[1] “General-purpose timer cookbook for STM32 microcontrollers” STMicroelectronics. [https://www.st.com/resource/en/application_note/dm00236305-generalpurpose-timer-cookbook-for-stm32-microcontrollers-stmicroelectronics.pdf](https://www.st.com/resource/en/application_note/dm00236305-generalpurpose-timer-cookbook-for-stm32-microcontrollers-stmicroelectronics.pdf)
+
+[2] “HD44780U (LCD-II) Datasheet.” Hitachi Corp. [https://circuitdigest.com/sites/default/files/HD44780U.pdf](https://circuitdigest.com/sites/default/files/HD44780U.pdf)
 
 
 # Inspiration
