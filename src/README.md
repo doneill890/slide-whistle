@@ -1,5 +1,3 @@
-# Example README
-This readme should contain an overview of the source code files contained in this folder.
+# Project file sources
 
-Note that this folder should contain source code files only (i.e., .c, .h, .sv, etc.).
-It should not include any SEGGER or Radiant project files.
+This project used source files in three capacities. The MCU used embedded C files for the STM32L4 processor to drive the motor, send data to the FPGA, and drive the transistors turning the fan on and off. The FPGA used Systemverilog to describe the hardware needed to recieve information from the MCU via SPI, synchronize it, and send it with the correct configuration to the LCD screen. Finally, the 3D printed parts were all created in SolidWorks, and their files are included here. Note that these solidworks files were based in part on the CAD representations for similar gears provided by McMaster-Carr [[2](https://www.mcmaster.com/gears/metal-gears-and-gear-racks-20-pressure-angle/)]
