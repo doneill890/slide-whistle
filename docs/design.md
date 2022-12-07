@@ -14,14 +14,14 @@ As mentioned above, the FPGA is capable of displaying characters on the LCD. It 
 
 
 <div style="text-align: center">
-  <img src="./assets/schematics/FPGA_top_block_diagram.png" alt="logo" width=800/>
+  <img src="../assets/schematics/FPGA_top_block_diagram.png" alt="logo" width=800/>
   <p>Figure T: Top level diagram of each part of the FPGA design</p>
 </div>
 
 The first FSM, shown below, used to send data to the screen, works as follows: it waits for data to come in from the controller FSM, indicated by a dataReady signal rising to 1. Then it goes through the steps to send the inputs of the correct RS, R/W, Data, and Enable signals to the LCD controller. Once it is done, it raises a 'sendCharDone' signal back to the controller FSM to indicate that the transaction is complete and a new one can be made. This FSM then sits in a wait state again until the controller sends more data.
 
 <div style="text-align: center">
-  <img src="./assets/schematics/send_fsm_block_diagram.png" alt="logo" width=800 />
+  <img src="../assets/schematics/send_fsm_block_diagram.png" alt="logo" width=800 />
   <p>Figure T: FSM for sending data to LCD controller</p>
 </div>
 
@@ -29,7 +29,7 @@ The controller FSM is rather more complicated, as it has to decide the setup sig
 
 
 <div style="text-align: center">
-  <img src="./assets/schematics/control_fsm_block_diagram.png" alt="logo" width=800/>
+  <img src="../assets/schematics/control_fsm_block_diagram.png" alt="logo" width=800/>
   <p>Figure T: FSM for controlling which data and control signals are sent to the LCD</p>
 </div>
 
@@ -39,7 +39,7 @@ One issue with this is that the clock for the controller and datasend FSMs must 
 
 
 <div style="text-align: left">
-  <img src="./assets/schematics/synchronizer_block_diagram.png" alt="logo" width=800/>
+  <img src="../assets/schematics/synchronizer_block_diagram.png" alt="logo" width=800/>
   <p>Figure T: FSM for synchronizing data coming in from SPI to the slower clock domain</p>
 </div>
 
