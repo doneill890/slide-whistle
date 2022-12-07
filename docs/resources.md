@@ -11,6 +11,9 @@ permalink: /resources/
 [2] “HD44780U (LCD-II) Datasheet.” Hitachi Corp. [https://circuitdigest.com/sites/default/files/HD44780U.pdf](https://circuitdigest.com/sites/default/files/HD44780U.pdf)
 
 
+[3] “McMaster-Carr.” [https://www.mcmaster.com/gears/metal-gears-and-gear-racks-20-pressure-angle/](https://www.mcmaster.com/gears/metal-gears-and-gear-racks-20-pressure-angle/) (accessed Dec. 07, 2022).
+
+
 # Inspiration
 
 The idea for this project came from a similar found [here](https://mitxela.com/projects/slide).
