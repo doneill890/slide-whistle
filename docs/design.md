@@ -21,14 +21,14 @@ As mentioned above, the FPGA is capable of displaying characters on the LCD. It 
 
 <div style="text-align: center">
   <img src="../assets/schematics/FPGA_top_block_diagram.png" alt="logo" width=800/>
-  <p>Figure T: Top level diagram of each part of the FPGA design</p>
+  <p  style="font-style: italic"> Top level diagram of each part of the FPGA design</p>
 </div>
 
 The first FSM, shown below, used to send data to the screen, works as follows: it waits for data to come in from the controller FSM, indicated by a dataReady signal rising to 1. Then it goes through the steps to send the inputs of the correct RS, R/W, Data, and Enable signals to the LCD controller. Once it is done, it raises a 'sendCharDone' signal back to the controller FSM to indicate that the transaction is complete and a new one can be made. This FSM then sits in a wait state again until the controller sends more data.
 
 <div style="text-align: center">
   <img src="../assets/schematics/send_fsm_block_diagram.png" alt="logo" width=800 />
-  <p>Figure T: FSM for sending data to LCD controller</p>
+  <p  style="font-style: italic"> FSM for sending data to LCD controller</p>
 </div>
 
 The controller FSM is rather more complicated, as it has to decide the setup signals being sent to the LCD and time all the data correctly. Its diagram is shown below. It begins in an initial state, where it waits until a counter has gone past a value corresponding to 40ms. This is due to a 40ms startup time described by the LCD controller [[2](https://circuitdigest.com/sites/default/files/HD44780U.pdf)]. Then, this controller FSM sends two setup signals to the LCD to set the correct configuration registers in the LCD. These set up the LCD as having 16 lines of 2 characters and to incriment the cursor each time a character is written. Then the controller FSM goes into a wait state until it receives data from the MCU over SPI. When the SPI transaction is done, the controller sends a control signal to the LCD that puts the cursor in the correct position for either the title or the note. Finally, the control FSM sends all the title or note characters to the LCD. Once all the characters are sent, the control FSM goes back to the wait state to await the next chunk of data from the MCU. This entire operation relies on several counter variables that count the number of characters sent or the time passed. Each time a character is sent to the LCD, the character sender FSM is activated and the controller FSM remains in the same state until the transaction is complete. This is true for both control character signals and data characters being displayed on the screen. 
@@ -36,7 +36,7 @@ The controller FSM is rather more complicated, as it has to decide the setup sig
 
 <div style="text-align: center">
   <img src="../assets/schematics/control_fsm_block_diagram.png" alt="logo" width=800/>
-  <p>Figure T: FSM for controlling which data and control signals are sent to the LCD</p>
+  <p  style="font-style: italic"> FSM for controlling which data and control signals are sent to the LCD</p>
 </div>
 
 The FPGA receives the correct data to display on the screen via an SPI transaction with the MCU as controller and FPGA as peripheral. Data only needs to go from controller to peripheral, so the CIPO line is ignored. The SPI reception module in the FPGA listens for transactions using an spiLoad signal from the MCU. Another signal, titleNote, is used to indicate whether the transaction is sending new title data or new note data. The FPGA detects when the spiLoad signal has dropped as an indication that data transfer is done and the title or note are ready to send to the screen. 
@@ -46,7 +46,7 @@ One issue with this is that the clock for the controller and datasend FSMs must 
 
 <div style="text-align: center">
   <img src="../assets/schematics/synch_fsm.png" alt="logo" width=800/>
-  <p>Figure T: FSM for synchronizing data coming in from SPI to the slower clock domain</p>
+  <p  style="font-style: italic"> FSM for synchronizing data coming in from SPI to the slower clock domain</p>
 </div>
 
 # Hardware Design
