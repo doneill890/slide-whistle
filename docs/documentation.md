@@ -13,31 +13,15 @@ permalink: /doc/
   <img src="../assets/schematics/block_diagram.png" alt="logo" width="600" />
 </div>
 
-## LCD Subsystem Schematic
+## Overall system schematics
 
 <div style="text-align: left">
-  <img src="../assets/schematics/control_fsm_block_diagram.png" alt="logo" width="600" />
+  <img src="../assets/schematics/system_schem.png" alt="logo" width="600" />
 </div>
-
-## Stepper Motor Subsystem Schematic
-
-<div style="text-align: left">
-  <img src="../assets/schematics/stepper_schematic.png" alt="logo" width="600" />
-</div>
-
-## Fan Subsystem Schematic
-
-<div style="text-align: left">
-  <img src="../assets/schematics/fan_schematic.png" alt="logo" width="600" />
-</div>
-
 
 # Source Code Overview
-<!-- This section should include information to describe the organization of the code base and highlight how the code connects. -->
 
-
-The source code for the project is located in the Github repository [here](https://github.com/doneill890/slide-whistle/tree/main/src).
-
+The source code for the project is located in the Github repository [here](https://github.com/doneill890/slide-whistle/tree/main/src). The MCU files there can be uploaded to the STM32L432KC microcontroller on the Nucleo 32 development board. They are used to generate the correct signals for the fan power control, motor controller IC, and SPI transactions to the FPGA. The FPGA files were uploaded to the ICE40UP5K FPGA on the UPduino v3.1 development board. These describe hardware that takes in SPI messages from the MCU and interfaces with the LCD to print the desired text. 
 # Bill of Materials
 <!-- The bill of materials should include all the parts used in your project along with the prices and links.  -->
 
