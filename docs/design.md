@@ -38,27 +38,38 @@ The FPGA receives the correct data to display on the screen via an SPI transacti
 One issue with this is that the clock for the controller and datasend FSMs must be fairly slow. This is due to the fact that most of the commands to the screen take 37 μs [[1](https://circuitdigest.com/sites/default/files/HD44780U.pdf) ]. This slow clock was divided down from a 48M MHz fast clock. The problem with this is that the spiLoad signal may rise and fall within less than a slow clock cycle, which means it would not be detected on the rising edge of the clock. To remedy this, a third synchronizing FSM was created and is shown below. This one used the fast 48 MHz to make sure the spiLoad signal was captured. Then, since the ratio of fast and slow clock frequencies was known, this FSM was used to hold an spiDone outut signal until it could be detected by the slow clock. The data from the SPI transaction is held after it is done and the transactions come every several hundred ms, so there is no need to synchronize that data. In this way, all the information coming out of SPI is synchronized to the slower clock of the other FSMs. 
 
 
-<div style="text-align: left">
+<div style="text-align: center">
   <img src="../assets/schematics/synchronizer_block_diagram.png" alt="logo" width=800/>
   <p>Figure T: FSM for synchronizing data coming in from SPI to the slower clock domain</p>
 </div>
 
 # Hardware Design
 
-The slide whistle has a 3D printed attachment from the fan to the mouthpiece of the whistle. This allows all the air coming out of the fan to be sent into the whistle, and works fairly well to play notes along the entire length of the whistle slide. This piece can be seen below both alone and connected to the fan and whistle.
-<!-- 
-<div style="text-align: left">
-  <img src="./assets/img/fan_piece.png" alt="logo" width="600" />
-</div> -->
+The slide whistle has a 3D printed attachment from the fan to the mouthpiece of the whistle. This allows all the air coming out of the fan to be sent into the whistle, and works fairly well to play notes along the entire length of the whistle slide. This piece can be seen below.
+
+<div style="text-align: center">
+  <img src="../assets/img/fan_piece1.jpg" alt="logo" width="600" />
+  <img src="../assets/img/fan_piece2.jpg" alt="logo" width="600" />
+</div>
 
 NOTE!!!::: include solidworks parts in the source section.
 
 Another set of 3D printed pieces were used to turn the rotational motion of the stepper motor into precise translational motion of the slider. To do this, a rack, pinion, and housing for the motor were all printed out. The housing holds the motor without allowing it to move and also provides axles for any additional gears that may be needed. The pinion gear attaches to the shaft of the motor, and the rack slides back and forth in a loose track attached to the housing. These pieces are shown in the images below.
 
-<!-- <div style="text-align: left">
-  <img src="./assets/img/final_3d_parts.png" alt="logo" width="600" />
-</div> -->
+<div style="text-align: center">
+  <img src="../assets/img/pinion.jpg" alt="logo" width="600" />
+  <p> Figure K: 3 inch pinion gear to be attached to motor shaft</p>
+  <img src="../assets/img/rack.jpg" alt="logo" width="600" />
+  <p> Figure F: rack gear to turn motor's rotational motion into translational motion along the slide of the whistle</p>
+  <img src="../assets/img/housing_gear2.jpg" alt="logo" width="600" />
+  <p> Figure V: motor housing with space for the motor and a track for the rack to slide when driven by the pinion gear</p>
+</div>
 
-In order to acheive a reasonably high translational speed, 3 inch pinion gears were printed. Initially, it was thought that additional speed would be needed, so more gears and axles were printed to allow the speed to be multiplied. However, increasing the speed of the gears by ratioing with a factor of x means a similar increase in torque needed and decrease in precision by a factor of x. This means that even one ratio gear speeding up by a factor of 5 meant too much torque needed and not enough precision to hit the notes correctly. Since the team was focusing on slower songs, this idea was abandoned after finding out that the translational speed acheived with a single 3 inch pinion gears was enough. 
+In order to acheive a reasonably high translational speed, 3 inch pinion gears were printed. Initially, it was thought that additional speed would be needed, so more gears and axles were printed to allow the speed to be multiplied. However, increasing the speed of the gears by ratioing with a factor of x means a similar increase in torque needed and decrease in precision by a factor of x. This means that even one ratio gear speeding up by a factor of 5 meant too much torque needed and not enough precision to hit the notes correctly. Since the team was focusing on slower songs, this idea was abandoned after finding out that the translational speed acheived with a single 3 inch pinion gears was enough. The final assembled design is shown below.
+
+<div style="text-align: center">
+    <img src="../assets/img/assembly.jpg" alt="logo" width="600" />
+    <p> Figure H: the entire assembly of motor, slide whistle, rack, and pinion</p>
+</div>
 
 As explained in the MCU design section, the MCU decides a certain number of steps to send to the A4988 stepper motor controller. This comes in the form of a certain number of pulses corresponding to the number of steps desired. The controller turns this into the correctly phased signals for the stepper motor and turns the shaft. The steps are 1.8° each, corresponding to a 0.047 in translational motion with a 3 inch pinion gear. This allows high precision necessary to get correct notes. At the highest speed, the motor can move 8 rotations per second. This means that the motor could move the rack the entire 7 inch length of the slide in about 106 ms. Both these values were determined to be satisfactory to meet the deliverables promised at the beginning of the project.
