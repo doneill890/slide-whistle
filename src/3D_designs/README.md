@@ -1,0 +1,3 @@
+# 3D Design CAD files
+
+All of the 3D printed parts of this project were designed using SolidWorks CAD software. The files for these parts can be found here, along with an assembly that indicates how to put them together. They were adapted from the 3D representations of several gears distributed by McMaster-Carr [[3](https://www.mcmaster.com/gears/metal-gears-and-gear-racks-20-pressure-angle/)]. Each part was printed at Harvey Mudd's Makerspace using FLSUN Super Racer printers using PLA provided by the school at no cost.
