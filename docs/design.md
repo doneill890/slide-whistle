@@ -16,7 +16,7 @@ As mentioned above, the FPGA is capable of displaying characters on the LCD. It 
 
 <div style="text-align: center">
   <img src="./assets/schematics/FPGA_top_block_diagram.png" alt="logo"/>
-  Figure T: Top level diagram of each part of the FPGA design
+  <p>Figure T: Top level diagram of each part of the FPGA design</p>
 </div>
 
 The first FSM, shown below, used to send data to the screen, works as follows: it waits for data to come in from the controller FSM, indicated by a dataReady signal rising to 1. Then it goes through the steps to send the inputs of the correct RS, R/W, Data, and Enable signals to the LCD controller. Once it is done, it raises a 'sendCharDone' signal back to the controller FSM to indicate that the transaction is complete and a new one can be made. This FSM then sits in a wait state again until the controller sends more data.
