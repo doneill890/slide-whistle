@@ -13,10 +13,11 @@ permalink: /doc/
   <img src="../assets/schematics/block_diagram.png" alt="logo" width="600" />
 </div>
 
-## Overall system schematics
+## Overall system schematic
 
 <div style="text-align: left">
-  <img src="../assets/schematics/system_schem.png" alt="logo" width="600" />
+  <img src="../assets/schematics/system_schem.png" alt="logo"/>
+  <p style="font-style: italic"> Overall Schematic of entire system, including MCU, FPGA, fan, motor, and LCD. Note that both MCU and FPGA are powered via a USB connection, and the 12V values come from benchtop power supplies. </p>
 </div>
 
 # Source Code Overview

@@ -55,25 +55,25 @@ The slide whistle has a 3D printed attachment from the fan to the mouthpiece of 
 
 <div style="text-align: center">
   <img src="../assets/img/fan_piece_single.jpg" alt="logo" width="600" />
-  <p> Figure R: adapter for slide whistle mouthpiece to attach to a 5015 fan output</p>
+  <p style="font-style: italic"> Adapter for slide whistle mouthpiece to attach to a 5015 fan output</p>
 </div>
 
 Another set of 3D printed pieces were used to turn the rotational motion of the stepper motor into precise translational motion of the slider. To do this, a rack, pinion, and housing for the motor were all printed out. The housing holds the motor without allowing it to move and also provides axles for any additional gears that may be needed. The pinion gear attaches to the shaft of the motor, and the rack slides back and forth in a loose track attached to the housing. These pieces are shown in the images below.
 
 <div style="text-align: center">
   <img src="../assets/img/pinion.jpg" alt="logo" width="600" />
-  <p> Figure K: 3 inch pinion gear to be attached to motor shaft</p>
+  <p  style="font-style: italic"> 3 inch pinion gear to be attached to motor shaft</p>
   <img src="../assets/img/rack.jpg" alt="logo" width="600" />
-  <p> Figure F: rack gear to turn motor's rotational motion into translational motion along the slide of the whistle</p>
+  <p  style="font-style: italic"> Rack gear to turn motor's rotational motion into translational motion along the slide of the whistle</p>
   <img src="../assets/img/housing_gear2.jpg" alt="logo" width="600" />
-  <p> Figure V: motor housing with space for the motor and a track for the rack to slide when driven by the pinion gear</p>
+  <p  style="font-style: italic"> Motor housing with space for the motor and a track for the rack to slide when driven by the pinion gear</p>
 </div>
 
 In order to acheive a reasonably high translational speed, 3 inch pinion gears were printed. Initially, it was thought that additional speed would be needed, so more gears and axles were printed to allow the speed to be multiplied. However, increasing the speed of the gears by ratioing with a factor of x means a similar increase in torque needed and decrease in precision by a factor of x. This means that even one ratio gear speeding up by a factor of 5 meant too much torque needed and not enough precision to hit the notes correctly. Since the team was focusing on slower songs, this idea was abandoned after finding out that the translational speed acheived with a single 3 inch pinion gears was enough. The final assembled design is shown below.
 
 <div style="text-align: center">
     <img src="../assets/img/assembly.jpg" alt="logo" width="600" />
-    <p> Figure H: the entire assembly of fan, whistle adapter, motor, housing, slide whistle, rack, and pinion</p>
+    <p style="font-style: italic"> The entire assembly of fan, whistle adapter, motor, housing, slide whistle, rack, and pinion</p>
 </div>
 
 As explained in the MCU design section, the MCU decides a certain number of steps to send to the A4988 stepper motor controller. This comes in the form of a certain number of pulses corresponding to the number of steps desired. The controller turns this into the correctly phased signals for the stepper motor and turns the shaft. The steps are 1.8° each, corresponding to a 0.047 in translational motion with a 3 inch pinion gear. This allows high precision necessary to get correct notes. At the highest speed, the motor can move 8 rotations per second. This means that the motor could move the rack the entire 7 inch length of the slide in about 106 ms. Both these values were determined to be satisfactory to meet the deliverables promised at the beginning of the project.
