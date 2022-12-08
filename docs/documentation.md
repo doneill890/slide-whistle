@@ -39,6 +39,7 @@ The 3D design files contain the SolidWorks part files used in this project. Thes
 | Pololou Stepper Controller Breakout | A4988 | 1 |  | Declan O'Neill | |
 | Nucleo STM32L432KC Microcontroller | NUCLEO-L432KC | 1 |  | E155 kit | [link](https://www.st.com/en/evaluation-tools/nucleo-l432kc.html) |
 | UPDuino v3.1 ICE40 UP5K FPGA |  | 1 |  | E155 kit | [link](https://upduino.readthedocs.io/en/latest/introduction/introduction.html) |
+| NEMA17 Bipolar Stepper Motor | 42A02 | 1 | | Engineering stockroom| | |
 | PLA for 3D printing |  | 500g |   | HMC Makerspace |  |
 | NPN Transistor | 2N 3904 | 1 |   | Engineering stockroom |  |
 | 10 kOhm Potentiometer |  | 1 |  | Engineering stockroom |  |
