@@ -19,11 +19,11 @@ Purpose : defining the functions needed to play music on a slide whistle and dis
 #include <string.h>
 
 #define IN2CM 2.54
-#define MAXLEN 50 // I need a max length of the song to put into the struct, so I arbitraily chose 50
+#define MAXLEN 100 // I need a max length of the song to put into the struct, so this is arbitrary
 #define STEP2CM ((3*IN2CM*1.8*3.141592653)/360) // conversion factors.
 #define CM2STEP (1/STEP2CM)
 #define FREQ 200 // frequency for sending pulses to the motor. higher means less time between steps.
-#define Q 500 // note length definitions in ms. (Quarter)
+#define Q 250 // note length definitions in ms. (Quarter)
 #define E Q/2 // (Eighth)
 #define H Q*2 // (Half)
 
@@ -33,7 +33,7 @@ struct song {
   // in the main function
   const char title[16];
   const int length; // in number of notes
-  const char notes[MAXLEN][4]
+  const char notes[MAXLEN][4];
   const int durations[MAXLEN];
 };
 
@@ -51,6 +51,13 @@ const struct song harry_potter = {
     {H, H+E, H+Q, H+H}
  };
 
+const struct song circus = {
+    "Circus theme",
+    27,
+    {"B5", "Bb5", "B5", "Bb5", "A5", "G#5", "G5", "F#5", "G5", "A5", "G#5", "G5", "G#5", "G5", "F#5", "F5", "E5", "D5", "E5", "G5", "F5", "E5", "F5", "G5", "F5", "E5", "F5"}, 
+    {Q, E, E, E, E, Q, Q, Q, Q, Q, Q, E, E, E, E, Q, Q, Q, Q, Q, Q, Q, Q, Q, Q, Q, Q}
+ };
+
 const struct song ABCs = {
     "Alphabet song",
     14,
@@ -61,22 +68,23 @@ const struct song ABCs = {
 double getLoc(const char note[4]) {
     // given a note, returns a location in cm. 0 is the slide as close to the mouthpiece as possible
     
-    if      (!strcmp("Bb6", note))   {return 0;}
-    else if (!strcmp("B5", note))  {return 1.6;}
-    else if (!strcmp("Bb5", note))  {return 4.2;}
-    else if (!strcmp("A5", note))   {return 4.9;}
+    if      (!strcmp("Bb6", note))  {return 0.0;}
+    else if (!strcmp("A6", note))   {return 0.65;}
+    else if (!strcmp("B5", note))   {return 2.5;}
+    else if (!strcmp("Bb5", note))  {return 4.0;}
+    else if (!strcmp("A5", note))   {return 4.7;}
     else if (!strcmp("G#5", note))  {return 5.5;}
-    else if (!strcmp("G5", note))   {return 6.3;}
+    else if (!strcmp("G5", note))   {return 6.2;}
     else if (!strcmp("F#5", note))  {return 6.9;}
-    else if (!strcmp("F5", note))   {return 7.6;}
-    else if (!strcmp("E5", note))   {return 8.3;}
-    else if (!strcmp("Eb5", note))  {return 9.4;}
-    else if (!strcmp("D5", note))   {return 10.2;}
-    else if (!strcmp("Db5", note))  {return 11.1;}
-    else if (!strcmp("C5", note))   {return 12;}
-    else if (!strcmp("B4", note))   {return 13.2;}
-    else if (!strcmp("Bb4", note))  {return 14.1;}
-    else if (!strcmp("A4", note))   {return 15.2;}
+    else if (!strcmp("F5", note))   {return 7.7;}
+    else if (!strcmp("E5", note))   {return 8.5;}
+    else if (!strcmp("Eb5", note))  {return 9.3;}
+    else if (!strcmp("D5", note))   {return 9.2;}
+    else if (!strcmp("Db5", note))  {return 11.15;}
+    else if (!strcmp("C5", note))   {return 12.2;}
+    else if (!strcmp("B4", note))   {return 13.1;}
+    else if (!strcmp("Bb4", note))  {return 14.3;}
+    else if (!strcmp("A4", note))   {return 15.55;}
     else {return 0;}
 }
 
@@ -176,7 +184,7 @@ void setup(void) {
   pinMode(PA2, GPIO_INPUT);    // starter pin
   pinMode(PA12, GPIO_OUTPUT);  // fan cntrl pin
 
-  delay_millis(TIM6, 200)// wait for LCD to startup before sending data.
+  delay_millis(TIM6, 200);// wait for LCD to startup before sending data.
 
 }
 
@@ -191,18 +199,18 @@ void setup(void) {
 *   and moving the motor to the right place
 */
 int main(void) {
-  struct song songToPlay = harry_potter; // LOAD IN SONG DATA HERE
+  struct song songToPlay = circus; // LOAD IN SONG DATA HERE
 
   float currPosition = 0; // in steps away from zero in cm
   float nextPosition;
 
   setup();
   sendTitle(songToPlay.title);
-
+   
   while(1) {
 
     while(digitalRead(PA2)){} // wait until button press to start song
-    
+      
     digitalWrite(PA12, 1); // turn fan on
     delay_millis(TIM6, 3000); // wait 3 seconds for the fan to start up
 
@@ -214,7 +222,7 @@ int main(void) {
       delay_millis(TIM6, songToPlay.durations[i]); // wait for duration of note
 
     }
-    sendNote("end"); // at the end of the song, turn off the dfan and reset the motor.
+    sendNote("end"); // at the end of the song, turn off the fan and reset the motor.
     digitalWrite(PA12, 0);
     currPosition = goToPos(currPosition, 0);
   }
