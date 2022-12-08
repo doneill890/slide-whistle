@@ -26,6 +26,7 @@ The source code for the project is located in the Github repository [here](https
 
 The MCU files there can be uploaded to the STM32L432KC microcontroller on the Nucleo development board. They are used to generate the correct signals for the fan power control, motor controller IC, and SPI transactions to the FPGA. All the MCU files beginning with "STM..." were provided to the team by Prof Vrake and contain the necessary functions and definitions to use the CIMSIS library and make the design process easier. The FPGA files were uploaded to the ICE40UP5K FPGA on the UPduino v3.1 development board. These describe hardware that takes in SPI messages from the MCU and interfaces with the LCD to print the desired text. 
 # Bill of Materials
+
 | Item | Part Number | Quantity | Unit Price | Vendor | Link |
 | ---- | ----------- | -------- | ---------- | ------ | ---- |
 | Lukmaa Slide Whistle | B091JVNBP9 | 1 | $9.99 | Amazon | [link](https://www.amazon.com/Lukmaa-Whistle-Instrument-Parent-Child-Stuffers/dp/B091JVNBP9/ref=sr_1_11?crid=2WIX541U4JRYK&keywords=slide+whistle&qid=1666912591&qu=eyJxc2MiOiI0LjgxIiwicXNhIjoiNC4xNyIsInFzcCI6IjQuMDIifQ%3D%3D&sprefix=slide+whistle%2Caps%2C164&sr=8-11) |
