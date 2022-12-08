@@ -4,8 +4,6 @@ title: Results
 permalink: /results/
 ---
 
-# Results
-
 Videos of the slide whistle and LCD playing music can be seen below 
 ## Harry Potter Theme
   
