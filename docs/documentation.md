@@ -24,7 +24,11 @@ permalink: /doc/
 
 The source code for the project is located in the Github repository [here](https://github.com/doneill890/slide-whistle/tree/main/src). 
 
-The MCU files there can be uploaded to the STM32L432KC microcontroller on the Nucleo development board. They are used to generate the correct signals for the fan power control, motor controller IC, and SPI transactions to the FPGA. All the MCU files beginning with "STM..." were provided to the team by Prof Vrake and contain the necessary functions and definitions to use the CIMSIS library and make the design process easier. The FPGA files were uploaded to the ICE40UP5K FPGA on the UPduino v3.1 development board. These describe hardware that takes in SPI messages from the MCU and interfaces with the LCD to print the desired text. 
+The MCU files there can be uploaded to the STM32L432KC microcontroller on the Nucleo development board. They are used to generate the correct signals for the fan power control, motor controller IC, and SPI transactions to the FPGA. All the MCU files beginning with "STM..." were provided to the team by Prof Vrake and contain the necessary functions and definitions to use the CIMSIS library and make the design process easier. 
+
+The FPGA files were uploaded to the ICE40UP5K FPGA on the UPduino v3.1 development board. These describe hardware that takes in SPI messages from the MCU and interfaces with the LCD to print the desired text.
+
+The 3D design files contain the SolidWorks part files used in this project. These were manufactured using the 3D printers at Harvey Mudd's Makerspace on FLSUN Super Racer Printers using standard PLA.
 # Bill of Materials
 
 | Item | Part Number | Quantity | Unit Price | Vendor | Link |
