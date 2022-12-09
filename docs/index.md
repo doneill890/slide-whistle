@@ -19,4 +19,4 @@ A slide whistle can be a fun and pleasing instrument to play tunes with, but the
   <img src="./assets/schematics/block_diagram.png" alt="logo" width="600" />
 </div>
 
-The overall system block diagram is shown above. The microcontroller takes song information (a series of notes) and plays the notes on the slide whistle by controlling a fan system and stepper motor that moves the rod. Meanwhile, it also communicates with the FPGA over a serial peripheral interface, sending the name of the song and the current note being played for the FPGA to display on the LCD.
+The overall system block diagram is shown above. The microcontroller takes song information (a series of notes and durations) and plays the notes on the slide whistle by controlling a fan system and stepper motor that moves the rod on the whistle. Meanwhile, it also communicates with the FPGA over a Serial Peripheral Interface (SPI), sending the name of the song and the current note being played for the FPGA to display on the LCD.

@@ -17,14 +17,14 @@ permalink: /doc/
 
 <div style="text-align: left">
   <img src="../assets/schematics/system_schem.png" alt="logo"/>
-  <p style="font-style: italic"> Overall Schematic of entire system, including MCU, FPGA, fan, motor, and LCD. Note that both MCU and FPGA are powered via a USB connection, and the 12V values come from benchtop power supplies. </p>
+  <p style="font-style: italic"> Overall Schematic of entire system, including MCU, FPGA, fan, motor, and LCD. Note that both MCU and FPGA are powered via a USB connection, and the 12V sources come from benchtop power supplies. </p>
 </div>
 
 # Source Code Overview
 
 The source code for the project is located in the Github repository [here](https://github.com/doneill890/slide-whistle/tree/main/src). 
 
-The MCU files there can be uploaded to the STM32L432KC microcontroller on the Nucleo development board. They are used to generate the correct signals for the fan power control, motor controller IC, and SPI transactions to the FPGA. All the MCU files beginning with "STM..." were provided to the team by Prof Vrake and contain the necessary functions and definitions to use the CIMSIS library and make the design process easier. 
+The MCU files there can be uploaded to the STM32L432KC microcontroller on the Nucleo development board. They are used to generate the correct signals for the fan power control, motor controller IC, and SPI transactions to the FPGA. All the MCU files beginning with "STM..." were provided to the team by Prof Brake, and contain the necessary functions and definitions to use the CIMSIS library and make the design process easier. 
 
 The FPGA files were uploaded to the ICE40UP5K FPGA on the UPduino v3.1 development board. These describe hardware that takes in SPI messages from the MCU and interfaces with the LCD to print the desired text.
 
