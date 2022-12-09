@@ -4,6 +4,10 @@ title: Design
 permalink: /design/
 ---
 
+# New Hardware
+
+There are several pieces of new hardware in this project, including the stepper motor that moves the slide whistle pull rod to different locations, the fan that blows air into the mouth piece, and the LCD that displays the song title and notes. The specific design process for implementing these features are detailed in the sections below.
+
 # Microcontroller Design
 
 The MCU performs three main functions: it controls the stepper motor to move the slide whistle pull rod to play different notes, it sends the song title and note information to the FPGA over SPI, and it controls the fan to blow air into the slide whistle mouthpiece. 
